@@ -6,9 +6,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackConcatPlugin = require("webpack-concat-files-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
+const terser = require("terser");
 
 const jsArr = [
+  path.resolve(__dirname, "src/js/api.jsx"),
   path.resolve(__dirname, "src/js/ssm.min.js"),
+  path.resolve(__dirname, "src/js/popups.js"),
+  path.resolve(__dirname, "src/js/swiper.js"),
   path.resolve(__dirname, "src/js/script.js"),
 ];
 
@@ -36,9 +40,8 @@ module.exports = (env, argv) => {
     plugins.push(
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "src/index.html"),
-        inject: false,
       }),
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
     );
 
     templatesFiles.length &&
@@ -47,8 +50,7 @@ module.exports = (env, argv) => {
           new HtmlWebpackPlugin({
             filename: `${item}`,
             template: path.resolve(__dirname, `src/${item}`),
-            inject: false,
-          })
+          }),
         );
       });
   }
@@ -61,45 +63,32 @@ module.exports = (env, argv) => {
             from: "**/*",
             context: path.resolve(__dirname, "src"),
             globOptions: {
-              ignore: ["**/*.{js,jsx,scss}"],
+              ignore: ["**/*.{js,scss}"],
             },
           },
         ],
-      })
+      }),
     );
   }
 
   return {
     mode: argv.mode,
-
-    stats: {
-      loggingDebug: ["sass-loader"],
-    },
+    stats: "errors-only",
     entry: {
-      index: ["./src/js/app/index.jsx", "./src/scss/style.scss"],
+      app: ["./src/js/app.js", "./src/scss/style.scss"],
     },
     output: {
       path: __dirname + "/public",
       filename: "js/[name].js",
     },
     devtool: isProduction ? "source-map" : "source-map",
-    resolve: {
-      extensions: ["*", ".js", ".jsx"],
-    },
+
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
+          test: /\.js$/,
           exclude: /node_modules/,
-          use: {
-            loader: "babel-loader",
-            options: {
-              presets: [
-                "@babel/preset-env",
-                ["@babel/preset-react", { runtime: "automatic" }],
-              ],
-            },
-          },
+          use: ["babel-loader"],
         },
         {
           test: /\.scss$/,
@@ -144,6 +133,7 @@ module.exports = (env, argv) => {
       port: 9000,
       open: true,
       hot: false,
+      allowedHosts: "auto",
     },
   };
 };

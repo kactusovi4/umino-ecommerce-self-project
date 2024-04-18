@@ -66,8 +66,8 @@
   }
 }
 
-@function cssvar($name, $prefix: beetroot) {
-  @return var(--#{$prefix}-#{$name});
+@function cssvar($name, $p: $prefix) {
+  @return var(--#{$p}-#{$name});
 }
 
 @mixin cssvar($name, $value: "", $prefix: beetroot) {

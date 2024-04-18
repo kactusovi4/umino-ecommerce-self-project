@@ -1,3 +1,4 @@
+@import "tailwind";
 @import "base/index";
 
 @import "layouts/layout_000/index";
@@ -22,9 +23,10 @@
   @import "layouts/layout_992/index";
 }
 
+@media only screen and (min-width: 1024px) {
+  @import "layouts/layout_1024/index";
+}
+
 @media only screen and (min-width: 1200px) {
   @import "layouts/layout_1200/index";
-}
-@media only screen and (min-width: 1440px) {
-  @import "layouts/layout_1440/index";
 }

@@ -1,21 +1,84 @@
+* {
+  box-sizing: border-box;
+  transition: all 150ms ease-in-out;
+}
+
 html {
-  font-size: cssvar(font-size);
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: cssvar(font-family);
-  font-size: 1rem;
+  font-family: cssvar("font-family");
+  font-size: cssvar("font-size");
+  color: cssvar("black");
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 12px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $h-color;
+  margin: 0;
+}
+p {
+  color: $p-color;
 }
 
-button {
-  padding: 8px 1rem;
-  background-color: #65c;
-  color: #ffffff;
-  border-radius: 6px;
+h2 {
+  font-size: cssvar("h2-font-size");
+}
+
+h3 {
+  font-size: cssvar("h3-font-size");
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: 0;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: center;
+}
+
+// scrollbar
+::-webkit-scrollbar {
+  height: 6px;
+  width: 5px;
+  background-color: rgba(139, 139, 139, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(37, 37, 37, 0.267);
+  border-radius: 10px;
+}
+
+// swiper fix
+.swiper-container {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100vh;
+  min-height: 0;
+  min-width: 0;
+}
+
+// swiper paggination
+.swiper-pagination-bullet-active {
+  background-color: black;
+}
+
+svg {
+  pointer-events: none;
+}
+
+.scroll-up-button svg {
+  mix-blend-mode: difference;
+  filter: invert(1);
+  z-index: 11;
 }

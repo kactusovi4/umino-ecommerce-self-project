@@ -1,0 +1,636 @@
+==============📣 snippet 1
+<header class="hero" id="home">
+    <img class="hero__img" src="i/logo.png" />
+    <article class="hero__article">
+    <h1 class="hero__title">Marine Awareness Retreats.</h1>
+    <p class="hero__content">
+        We are an organization focused on educating and raising awareness
+        about the importance of our ocean’s ecosystems. We create
+        life-altering experiences that literally change perceptions and
+        perspectives. Join us for an incredible trip that will educate and
+        forever change you.
+    </p>
+    <button class="hero__btn">Learn more about our trips</button>
+    </article>
+</header>
+
+==============📣 snippet 2 navigation 
+////  ------------- 🖍 
+ <div class="nav-wrap">
+      <img src="i/nav-logo.svg" class="nav-logo" />
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+      </label>
+
+      <nav class="nav">
+        <ul class="nav__ul">
+          <li class="nav__item"><a href="#home">Home</a></li>
+          <li class="nav__item"><a href="#team">About</a></li>
+          <li class="nav__item"><a href="#gallery">Gallery</a></li>
+          <li class="nav__item"><a href="#problem">Blog</a></li>
+          <li class="nav__item"><a href="#contact">Contact</a></li>
+          <li class="nav__item">
+           <button class="nav__btn">Book an experience</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+--------------------------------- ////
+
+////  ------------- 🖍 layout_000/_nav.scss
+.nav-logo {
+  max-width: 90px;
+}
+
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  height: 48px;
+  width: 100%;
+  background-color: $bgNavWrap;
+ border-bottom: 1px solid $lightGrey;
+  box-shadow: 0px 1px 8px $bgShadowWrap;
+  padding: 0 1.5rem;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  position: relative;
+  padding: 0.25rem;
+  width: 2rem;
+  height: 1.25rem;
+  height: 2rem;
+}
+
+.nav-toggle ~ label > span,
+.nav-toggle ~ label > span::before,
+.nav-toggle ~ label > span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0.75rem;
+  height: 0.125rem;
+  width: 1.75rem;
+  opacity: 1;
+  background: #fff;
+  transition: 0.14s ease-in-out;
+}
+
+.nav-toggle ~ label > span::before {
+  top: -0.5rem;
+}
+
+.nav-toggle ~ label > span::after {
+  top: 0.5rem;
+}
+
+--------------------------------- ////
+
+
+////  ------------- 🖍 layout_992/_nav.scss
+
+.nav-wrap {
+    
+}
+
+.nav-toggle-label {
+  display: none;
+}
+
+.nav {
+  position: initial;
+
+  a {
+    border-bottom: none;
+  }
+  a:hover {
+    background: transparent;
+  }
+
+  &::after,
+  li:last-of-type::before {
+    display: none;
+    padding: initial;
+  }
+
+  @include e(btn) {
+    width: auto;
+    background: $blue;
+    color: $white;
+    letter-spacing: normal;
+    text-shadow: none;
+    box-shadow: none;
+    &:hover {
+      box-shadow: inset 0 0 5px $blue;
+      background-color: $navy-dark;
+    }
+  }
+} // .nav
+
+--------------------------------- ////
+
+
+==============📣  Snippet 3 => trips 
+////  ------------- 🖍 index.html 
+ <div class="trips" id="trips">
+      <article class="trips__intro">
+        <h2 class="trips__title">Our trips</h2>
+        <p class="trips__intro-content">
+          We have trips worldwide; incredible experiences that will not only
+          provide unique animal interactions but will also introduce you to
+          local heroes that are making a difference in their communities each
+          and every day. Our trips educate and connect you with conservationists
+          that are making changes in small communities. Little steps with huge
+          impacts!
+        </p>
+      </article>
+
+      <ul class="trip-list">
+        <li class="trip-list__item">
+          <h3 class="trip-list__title">Humpback Whales</h3>
+          <p class="trip-list__content">
+            Tonga is a special place to visit - and if you go at the right time,
+            you will be forever changed by seeing these gentle giants swimming
+            with babies and engaging in heat runs. The excitement level is high
+            on this trip; there’s nothing like hearing the song of a humpback
+            whale as he tries to encourage a female to mate with him.
+            Conservation is top priority among the locals, who do their best to
+            ensure that the whales have a safe place to mate and birth.
+          </p>
+          <img class="trip-list__img" src="i/trip01.jpg" />
+          <a class="trip-list__link" href="#">Whales in Tonga</a>
+        </li>
+        <li class="trip-list__item">
+          <h3 class="trip-list__title">GB Reef</h3>
+          <p class="trip-list__content">
+            Sail to some of the most incredible islands and dive sites in the
+            world. The Great Barrier Reef is the world’s largest living
+            organism, stretching over 2,000 km down the eastern coast of
+            Australia. This trip will allow you to ‘live’ on the reef. We will
+            visit turtle conservatories, shark protected breeding grounds, and
+            you’ll learn about measures that are being taken to preserve this
+            treasure.
+          </p>
+          <img class="trip-list__img" src="i/trip02.jpg" />
+          <a class="trip-list__link" href="#">Sail the Reef</a>
+        </li>
+        <li class="trip-list__item">
+          <h3 class="trip-list__title">Galapagos</h3>
+          <p class="trip-list__content">
+            This trip is an amazing opportunity to visit many of the islands in
+            the archipelago. There is so much diversity and an abundance of
+            wildlife that is found nowhere else on earth. We will spend 10 days
+            with sharks, mantas, turtles, ocean iguanas and so much more. Learn
+            about the unique conservation efforts and amazing animals found only
+            in the Galapagos.
+          </p>
+          <img class="trip-list__img" src="i/trip03.jpg" />
+          <a class="trip-list__link" href="#">Diversity central</a>
+        </li>
+        <li class="trip-list__item">
+          <h3 class="trip-list__title">Sharks</h3>
+          <p class="trip-list__content">
+            Want to swim with sharks? This trip is for you. We will see tiger
+            sharks, hammerheads, lemons and occasionally whale sharks. Not only
+            will you have a thrill experiencing silent, graceful beauties swim
+            right by you, you will also learn about the importance of sharks.
+            These top-level predators are necessary for a healthy ocean and help
+            keep all the other species healthy as well.
+          </p>
+          <img class="trip-list__img" src="i/trip04.jpg" />
+          <a class="trip-list__link" href="#">Sharks, sharks, sharks! </a>
+        </li>
+        <li class="trip-list__item">
+          <h3 class="trip-list__title">Coral Restoration</h3>
+          <p class="trip-list__content">
+            Learn about coral re-growth and restoration. On this trip you will
+            work with a team of coral specialists. You’ll see how they grow and
+            care for the coral polyps, and once they are large enough, how each
+            one is meticulously attached to the reef. You will help our team
+            monitor assess the health of corals at various stages of growth and
+            even be able to attach new coral to help the reef grow!
+          </p>
+          <img class="trip-list__img" src="i/trip05.jpg" />
+          <a class="trip-list__link" href="#">Thailand coral project</a>
+        </li>
+        <li class="trip-list__item">
+          <h3 class="trip-list__title">Maldives</h3>
+          <p class="trip-list__content">
+            Our Maldives experience combines adventure with cultural and
+            sustainable travel. Our tours allow guests to learn about the
+            Maldives, and its culture, beliefs, and traditions through the eyes
+            of a local. You’ll stay in an overwater bungalow that overlooks a
+            richly diverse lagoon. The island is a safe nesting site for Olive
+            Ridley and Green Sea Turtles. You’ll also be able to work with
+            locals, assisting with rescues and rehabilitation in this incredible
+            ecosystem.
+          </p>
+          <img class="trip-list__img" src="i/trip06.jpg" />
+          <a class="trip-list__link" href="#">Culural ocean safari</a>
+        </li>
+      </ul>
+    </div>
+    <!-- .trips -->
+
+--------------------------------- ////
+
+
+////  ------------- 🖍 layout_000/_trips.scss 
+.trips {
+  padding: 1rem;
+  margin: auto;
+  max-width: 1200px;
+
+  @include e(title) {
+    color: $blue;
+    font-size: 3rem;
+    margin-left: 1rem;
+  }
+
+  @include e(intro) {
+    margin: 2rem auto;
+    width: 80%;
+    max-width: 1000px;
+  }
+  @include e(content) {
+    border-left: solid 1px $grey;
+    padding-left: 1rem;
+  }
+}
+
+.trip-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include e(item) {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 6px;
+    border: solid 1px $grey;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1.8rem;
+  }
+
+   @include e(img) {
+    max-width: 100%;
+    width: 100%;
+    vertical-align: top;
+  }v
+
+  @include e(title) {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: $white;
+    padding: 0.5rem;
+    margin: 0 0 1rem 0;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(51, 51, 51, 0.7);
+  }
+
+  @include e(link) {
+    border-radius: 3px;
+    background-color: $blue-dark;
+    color: $white;
+     padding: 8px 12px;
+    margin-top: 1rem;
+    text-decoration: none;
+  }
+}
+--------------------------------- ////
+
+
+
+==============📣 Snippet 4 => CTA 
+////  ------------- 🖍 index.html
+    <section class="cta cta_1">
+      <h2 class="cta__title">Education</h2>
+      <p class="cta__content">
+        Our mission is to provide education through global experiences. We will
+        open doors to you that will leave a lasting impression on how you view
+        our world and alter your behaviors and actions for the good of all.
+      </p>
+    </section>
+    <!--  /.cta 1 -->
+
+    <section class="cta cta_2">
+      <h2 class="cta__title">Education</h2>
+      <p class="cta__content">
+        Our mission is to provide education through global experiences. We will
+        open doors to you that will leave a lasting impression on how you view
+        our world and alter your behaviors and actions for the good of all.
+      </p>
+    </section>
+    <!--  /.cta 2 -->
+
+    <section class="cta cta_3">
+      <h2 class="cta__title">Education</h2>
+      <p class="cta__content">
+        Our mission is to provide education through global experiences. We will
+        open doors to you that will leave a lasting impression on how you view
+        our world and alter your behaviors and actions for the good of all.
+      </p>
+    </section>
+    <!--  /.cta 3 -->
+--------------------------------- ////
+////  ------------- 🖍 layout_000/_cta.scss 
+.cta {
+  color: $white;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.5);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include m(1) {
+    background-image: url("#{$i}cta1.jpg");
+  }
+  @include m(2) {
+    background-image: url("#{$i}cta2.jpg");
+  }
+  @include m(3) {
+    background-image: url("#{$i}cta3.jpg");
+  }
+
+  @include e(title) {
+    margin: 0 0 1rem 1rem;
+  }
+  @include e(content) {
+    margin: 0;
+    border-left: solid 1px $white;
+    padding-left: 1rem;
+    max-width: 700px;
+  }
+}
+--------------------------------- ////
+
+
+==============📣 Snippet 5
+!!! Після cta_1
+
+////  ------------- 🖍 index.html
+<section class="team" id="team">
+      <h2 class="team__title">Get to know us</h2>
+      <ul class="team__members">
+        <li class="team__member"><img src="i/team01.jpg" /></li>
+        <li class="team__member"><img src="i/team02.jpg" /></li>
+        <li class="team__member"><img src="i/team03.jpg" /></li>
+        <li class="team__member"><img src="i/team04.jpg" /></li>
+        <li class="team__member"><img src="i/team05.jpg" /></li>
+      </ul>
+      <p class="team__content">
+        MAR has been organizing small ocean wildlife expeditions for 12 years.
+        We keep our groups small to minimize our impact on the areas we visit
+        and to ensure the animals are not stressed or overwhelmed. This also
+        ensures that our guests can maximize time with the animals. Our company
+        is a tight knit group of conservationists and experts in their fields.
+        All of our employees are passionate about wildlife and conservation. We
+        are all marine biologists and ocean aficionados, so we can give you lots
+        of information, and believe me, we have a lot to share. We consider each
+        other 'Ohana': a Hawaiian term meaning "family". By the end of your
+        journey you will be part of the MAR Ohana. <a href="#">Meet the team</a>
+      </p>
+    </section>
+
+--------------------------------- ////
+
+////  ------------- 🖍 layout_000/_team.scss 
+.team {
+  margin: 1rem;
+
+  @include e(title) {
+    margin: 0 0 1rem 0;
+    text-align: center;
+    color: #39bae6;
+  }
+  @include e(content) {
+    margin: 0 0 1rem 0;
+  }
+
+  @include e(members) {
+    margin: 1rem 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  @include e(member) {
+    img {
+      border-radius: 50%;
+      width: 80%;
+      box-shadow: 1px 1px 3px $white, 2px 2px 6px rgb(28, 121, 138, 0.5);
+      border: solid 2px rgba(255, 255, 255, 0.8);
+    }
+
+    &:nth-child(1) {
+    }
+    &:nth-child(2) {
+    }
+    &:nth-child(3) {
+      img {
+      }
+    }
+    &:nth-child(4) {
+    }
+    &:nth-child(5) {
+    }
+  }
+}
+
+--------------------------------- ////
+
+==============📣 Snippet 6  gallery
+!!! After cta_2 
+
+////  ------------- 🖍 index.html
+<section class="gal" id="gal">
+      <h2 class="gal__title">View some amazing encounters from our trips</h2>
+      <div class="gal__items">
+        <img src="i/gal1.jpg" />
+        <img src="i/gal2_w.jpg" />
+        <img src="i/gal3_p.jpg" />
+        <img src="i/gal4.jpg" />
+        <img src="i/gal5_w.jpg" />
+        <img src="i/gal6.jpg" />
+        <img src="i/gal7_p.jpg" />
+        <img src="i/gal8.jpg" />
+        <img src="i/gal9_w.jpg" />
+        <img src="i/gal10_w.jpg" />
+        <img src="i/gal11_p.jpg" />
+        <img src="i/gal12_w.jpg" />
+        <img src="i/gal13.jpg" />
+        <img src="i/gal14_p.jpg" />
+        <img src="i/gal15.jpg" />
+        <img src="i/gal16_w.jpg" />
+        <img src="i/gal17_p.jpg" />
+        <img src="i/gal18_w.jpg" />
+        <img src="i/gal19.jpg" />
+        <img src="i/gal20.jpg" />
+      </div>
+    </section>
+
+--------------------------------- ////
+
+////  ------------- 🖍 layout_000/_gal.scss 
+.gal {
+  max-width: 1200px;
+  margin: auto;
+
+ img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: top;
+  }
+
+  @include e(title) {
+    text-align: center;
+    color: $blue;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+--------------------------------- ////
+
+
+==============📣 Snippet 7 footer
+
+////  ------------- 🖍 index.html
+    <footer class="footer">
+      <section class="form" id="contact">
+        <h3 class="form__title">Got questions? Get in touch</h3>
+        <p class="form__info">
+          If you'd like more information about any of our trips, please reach
+          out and we will contact you promptly. And while you're at it, signup
+          for our newsletter to stay informed on all the latest MAR adventures,
+          research and awesome images that we've captured along the way.
+        </p>
+      </section>
+
+     <div class="social-wrap">
+        <article class="social">
+          <h3 class="social__title">Let's be social - connect with us!</h3>
+
+          <div class="si">
+            <a class="si__item si__item_fb" href="#">
+              <svg>
+                <use xlink:href="i/si-sprite.svg#fb" />
+              </svg>
+              <span class="sr-only">Facebook</span>
+            </a>
+            <a class="si__item si__item_in" href="#">
+              <svg>
+                <use xlink:href="i/si-sprite.svg#instagram" />
+              </svg>
+              <span class="sr-only"> Instagram</span>
+            </a>
+            <a class="si__item si__item_ln" href="#">
+              <svg>
+                <use xlink:href="i/si-sprite.svg#linkedin" />
+              </svg>
+              <span class="sr-only">Linkedin</span></a
+            >
+            <a class="si__item si__item_tw" href="#">
+              <svg><use xlink:href="i/si-sprite.svg#tw" /></svg>
+              <span class="sr-only">Twitter</span></a
+            >
+          </div>
+        </article>
+      </div>
+
+      <div class="contacts-wrap">
+        <article class="contacts">
+          <h4 class="contacts__title">Contact Information</h4>
+          <ul class="contacts-list">
+            <li class="contacts-list__item">Phone: 123-456-7890</li>
+            <li class="contacts-list__item">Email: info@com.ua</li>
+            <li class="contacts-list__item">
+              Address: 1234 Ocean Ave. Wavy, CA 12345
+            </li>
+          </ul>
+          <p class="contacts-list__copy">MAR &copy;2021</p>
+        </article>
+      </div>
+    </footer>
+--------------------------------- ////
+
+////  ------------- 🖍 layout_000/_footer.scss 
+.form {
+  background-color: $navy-dark;
+  color: $white;
+  padding: 1rem 1rem 2rem;
+
+  @include e(info) {
+    font-weight: 300;
+    padding-bottom: 1rem;
+  }
+}
+.social-wrap {
+  background-color: $blue;
+}
+
+.social {
+  color: $white;
+  padding: 1rem 1rem 0;
+  text-align: center;
+
+  @include e(title) {
+    border-bottom: none;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 0;
+    text-align: center;
+  }
+}
+
+.si {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  border-left: solid $white 1px;
+  font-size: 1.5rem;
+  padding: 0.5rem 0 0.5rem 1rem;
+
+  @include e(item) {
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.contacts-wrap {
+  background-color: $blue;
+  color: $white;
+  padding: 1rem 1rem 0;
+  text-align: center;
+}
+.contacts-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+//--------------------------------- ////
+
+
+
+////  ------------- 🖍 layout_992/_footer.scss 
+
+.si {
+  border-left: none;
+  padding-left: 0;
+
+  a {
+    display: inline-block;
+    font-size: 1.6rem;
+  }
+}
+
+//--------------------------------- ////
