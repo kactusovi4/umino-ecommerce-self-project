@@ -24,6 +24,7 @@ openButtons.forEach((el) => {
 closeButtons.forEach((el) => {
   el.addEventListener("click", function () {
     const popup = this.closest(".popup-content");
+    // console.log("xd");
     closePopup(popup);
   });
 });
