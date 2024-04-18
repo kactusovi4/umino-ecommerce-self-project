@@ -1,67 +1,36 @@
 //fonts
-$google-font: "https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap";
-$prefix: ami- !default;
+$google-font: "https://fonts.googleapis.com/css?family=Ubuntu:400,500";
+$prefix: prefix- !default;
 $baseFontSize: 16px;
-$smallFontSize: 14px;
-$baseFontFamily: "Jost", sans-serif;
-$h2FontSize: 40px;
-$h3FontSize: 30px;
-$headerFontSize: 80px;
-$btnFontSize: 12px;
-$mediumFontWeight: 400;
-$strongFontWeight: 500;
+$baseFontFamily: "Ubuntu", sans-serif;
+$mediumFontWeight: 500;
+
+$mobilePadding: (12px / $baseFontSize) * 1rem;
+$desktopPadding: 1rem;
 
 // Paths
-$i: "../i/";
+
+$imagesPath: "../i/";
 $fontsPath: "../fonts/";
 $usersFilesPath: "../userfiles/";
 
 // Colors
-$h-color: #121212;
-$p-color: #646464;
-$black: #101011;
+$black: #000000;
 $white: #ffffff;
-$blue: #13b1e7;
-$blue-dark: #39bae6;
-$gold: #eeb80c;
-$navy-dark: #223054;
-$navy-light: #496bc2;
-$lightGrey: #e0e5eb;
-$grey: #dedede;
-$red: #d0473d;
-$orange: #d73f0e;
-$bgNavWrap: #212f54;
-$bgShadowWrap: #223055;
+$blue: #0d6efd !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #d63384 !default;
+$red: #dc3545 !default;
 
-// Misc variables
-$fullWidthPadding: 3rem;
-$mainPadding: 15px;
-
-$cssVars: (
-  // Fonts
-  "font-size": $baseFontSize,
-  "small-font-size": $smallFontSize,
+$cssvars: (
   "font-family": $baseFontFamily,
-  "h2-font-size": $h2FontSize,
-  "h3-font-size": $h3FontSize,
-  "header-font-size": $headerFontSize,
-  "btn-font-size": $btnFontSize,
-  "medium-font-weight": $mediumFontWeight,
-  "strong-font-weight": $strongFontWeight,
-  // Colors
+  "font-size": $baseFontSize,
   "black": $black,
   "white": $white,
   "blue": $blue,
-  "gold": $gold,
-  "navy-dark": $navy-dark,
-  "grey": $grey,
-  "light-grey": $lightGrey,
-  "bg-nav-wrap": $bgNavWrap,
-  "bg-shadow-wrap": $bgShadowWrap,
-  "blue-dark": $blue-dark,
+  "indigo": $indigo,
+  "purple": $purple,
+  "pink": $pink,
   "red": $red,
-  "orange": $orange,
-  // Misc
-  "full-width-padding": $fullWidthPadding,
-  "main-padding": $mainPadding
-);
+) !default;
