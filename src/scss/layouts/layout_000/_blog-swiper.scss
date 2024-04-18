@@ -1,0 +1,23 @@
+.swiper-blog-slide {
+  border: 1px solid $grey;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  text-align: center;
+  @include e(wrapper) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  @include e(img) {
+    width: 70px;
+    height: 70px;
+  }
+  @include e(text) {
+    text-align: center;
+    line-height: 28px;
+  }
+  @include e(author) {
+    color: $black;
+  }
+}

@@ -9,6 +9,8 @@ const webpack = require("webpack");
 
 const jsArr = [
   path.resolve(__dirname, "src/js/ssm.min.js"),
+  path.resolve(__dirname, "src/js/popups.js"),
+  path.resolve(__dirname, "src/js/swiper.js"),
   path.resolve(__dirname, "src/js/script.js"),
 ];
 

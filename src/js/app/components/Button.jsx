@@ -9,7 +9,12 @@ const Button = () => {
 
   return (
     <>
-      <button onClick={handleShow}>{show ? "Hide" : "Show"}</button>
+      <button
+        onClick={handleShow}
+        className="p-4 bg-purple-600 rounded-md text-white"
+      >
+        {show ? "Hide" : "Show"}
+      </button>
 
       {show && <h1>Hello from button</h1>}
     </>
