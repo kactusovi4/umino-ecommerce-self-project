@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
 
-const SearchForm = ({ handleTextChange }) => {
+const SearchForm = ({ handleSearch }) => {
+  const inputRef = useRef();
+  const inputEl = inputRef.current;
+
+  function setInputValue({ target }) {
+    inputEl.value = target.innerText;
+    handleSearch(target.innerText);
+  }
+
   return (
     <div className="flex flex-col gap-4 w-full mb-8">
       <h3 className="text-xl font-medium text-center">Search Our Site</h3>
-      <form action="" className="relative self-center w-full tablet:w-3/4">
+      <form
+        className="relative self-center w-full tablet:w-3/4"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <input
           type="text"
           placeholder="I`m lookin for..."
           id="search-field"
           className="rounded-full font-medium px-5 py-4 text-black transition-all w-full bg-white ring-1 ring-gray-300 focus:ring-black duration-200 flex-1"
-          onChange={(e) => handleTextChange(e.target.value)}
+          onChange={(e) => handleSearch(e.target.value.trim())}
+          ref={inputRef}
         />
         <button
           type="submit"
@@ -34,13 +48,25 @@ const SearchForm = ({ handleTextChange }) => {
       {/* <!-- quick search --> */}
       <div className="flex gap-3 items-center content-center justify-center">
         <span className="text-gray-700">Quick Search: </span>
-        <a className="hover:opacity-60 transition-all" href="#">
-          shirt,
+        <a
+          className="hover:opacity-60 transition-all"
+          href="#"
+          onClick={setInputValue}
+        >
+          shirt
         </a>
-        <a className="hover:opacity-60 transition-all" href="#">
-          dress,
+        <a
+          className="hover:opacity-60 transition-all"
+          href="#"
+          onClick={setInputValue}
+        >
+          dress
         </a>
-        <a className="hover:opacity-60 transition-all" href="#">
+        <a
+          className="hover:opacity-60 transition-all"
+          href="#"
+          onClick={setInputValue}
+        >
           sweater
         </a>
       </div>
@@ -49,7 +75,7 @@ const SearchForm = ({ handleTextChange }) => {
 };
 
 SearchForm.propTypes = {
-  handleTextChange: PropTypes.func.isRequired,
+  handleSearch: PropTypes.func.isRequired,
 };
 
 export default SearchForm;

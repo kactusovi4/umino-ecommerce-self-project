@@ -823,6 +823,12 @@ html {
   }
 }
 
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
 @media (min-width: 1536px) {
   .container {
     max-width: 1536px;
@@ -2335,12 +2341,21 @@ input.tab:checked + .tab-content,
   grid-row: span 2 / span 2;
 }
 
+.float-end {
+  float: inline-end;
+}
+
 .float-right {
   float: right;
 }
 
 .m-auto {
   margin: auto;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mb-12 {
@@ -2369,6 +2384,10 @@ input.tab:checked + .tab-content,
 
 .mb-\[24px\] {
   margin-bottom: 24px;
+}
+
+.mt-auto {
+  margin-top: auto;
 }
 
 .line-clamp-2 {
@@ -2482,10 +2501,6 @@ input.tab:checked + .tab-content,
   height: max-content;
 }
 
-.h-\[250px\] {
-  height: 250px;
-}
-
 .min-h-\[183px\] {
   min-height: 183px;
 }
@@ -2543,6 +2558,10 @@ input.tab:checked + .tab-content,
   min-width: 250px;
 }
 
+.max-w-\[1440px\] {
+  max-width: 1440px;
+}
+
 .max-w-\[1470px\] {
   max-width: 1470px;
 }
@@ -2554,6 +2573,10 @@ input.tab:checked + .tab-content,
 .max-w-max {
   max-width: -moz-max-content;
   max-width: max-content;
+}
+
+.max-w-\[1420px\] {
+  max-width: 1420px;
 }
 
 .flex-1 {
@@ -2636,6 +2659,14 @@ input.tab:checked + .tab-content,
 
 .grid-rows-3 {
   grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+
+.grid-rows-\[repeat\(3\2c 55px\)\] {
+  grid-template-rows: repeat(3,55px);
+}
+
+.grid-rows-\[55px_auto_auto\] {
+  grid-template-rows: 55px auto auto;
 }
 
 .flex-row {
@@ -2757,8 +2788,16 @@ input.tab:checked + .tab-content,
   place-self: end;
 }
 
+.self-end {
+  align-self: flex-end;
+}
+
 .self-center {
   align-self: center;
+}
+
+.justify-self-end {
+  justify-self: end;
 }
 
 .overflow-auto {
@@ -2805,12 +2844,12 @@ input.tab:checked + .tab-content,
   border-radius: 0.75rem;
 }
 
-.border-2 {
-  border-width: 2px;
+.rounded-sm {
+  border-radius: 0.125rem;
 }
 
-.border-4 {
-  border-width: 4px;
+.border-2 {
+  border-width: 2px;
 }
 
 .border-b {
@@ -2865,11 +2904,6 @@ input.tab:checked + .tab-content,
   background-color: rgb(216 180 254 / var(--tw-bg-opacity));
 }
 
-.bg-purple-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(147 51 234 / var(--tw-bg-opacity));
-}
-
 .bg-teal-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(20 184 166 / var(--tw-bg-opacity));
@@ -2880,9 +2914,9 @@ input.tab:checked + .tab-content,
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-gray-400 {
+.bg-purple-700 {
   --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+  background-color: rgb(126 34 206 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-30 {
@@ -2915,9 +2949,8 @@ input.tab:checked + .tab-content,
      object-fit: cover;
 }
 
-.object-center {
-  -o-object-position: center;
-     object-position: center;
+.p-1 {
+  padding: 0.25rem;
 }
 
 .p-4 {
@@ -2930,10 +2963,6 @@ input.tab:checked + .tab-content,
 
 .p-\[30px\] {
   padding: 30px;
-}
-
-.p-2 {
-  padding: 0.5rem;
 }
 
 .px-0 {
@@ -3046,6 +3075,10 @@ input.tab:checked + .tab-content,
   padding-top: 35px;
 }
 
+.pt-8 {
+  padding-top: 2rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -3095,6 +3128,11 @@ input.tab:checked + .tab-content,
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .font-medium {
@@ -3312,6 +3350,12 @@ input.tab:checked + .tab-content,
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.group\/img-container:hover .group-hover\/img-container\:scale-110 {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .group:hover .group-hover\:fill-black {
   fill: #000;
 }
@@ -3470,6 +3514,10 @@ input.tab:checked + .tab-content,
 
   .tablet\:gap-8 {
     gap: 2rem;
+  }
+
+  .tablet\:gap-6 {
+    gap: 1.5rem;
   }
 
   .tablet\:p-0 {
@@ -3654,5 +3702,11 @@ input.tab:checked + .tab-content,
   .large-desctop\:px-7 {
     padding-left: 1.75rem;
     padding-right: 1.75rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .extra-large-desctop\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }

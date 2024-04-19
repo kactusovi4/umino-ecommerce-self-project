@@ -1,8 +1,12 @@
 import { Wrap } from "./styles/app";
-import SearchPopup from "./components/SearchPopup";
+import SearchPopup from "./components/searchPopup/SearchPopup";
 
 const App = () => {
-  return <SearchPopup />;
+  return (
+    <>
+      <SearchPopup />
+    </>
+  );
 };
 
 export default App;

@@ -8,6 +8,7 @@ module.exports = {
         tablet: "768px",
         desctop: "1024px",
         "large-desctop": "1200px",
+        "extra-large-desctop": "1400px",
       },
       colors: {
         "page-red": "#d0473d",
