@@ -9,6 +9,7 @@ function closePopup(el) {
 }
 
 const CLoseBtn = ({ popup }) => {
+  // console.log(shadow.classList, popup);
   return (
     <button
       className="popup-close absolute right-6 top-9 p-1 bg-white rounded-full z-10"

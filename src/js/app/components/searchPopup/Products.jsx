@@ -2,13 +2,6 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Card from "../common/Card";
 
-function fixImageLink(imgs) {
-  imgs.forEach((i) => {
-    const indx = i.indexOf("h");
-  });
-  return;
-}
-
 function Products({ filteredProducts, loading, setUrl }) {
   const [count, setCount] = useState(30);
   const URL = `https://api.escuelajs.co/api/v1/products?offset=0&limit=${count}`;
