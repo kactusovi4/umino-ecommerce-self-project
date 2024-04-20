@@ -100,7 +100,7 @@ function elFade(entries, observer) {
         {
           opacity: 1,
           duration: 0.3,
-        },
+        }
       );
     } else {
       gsap.fromTo(entry.target, { opacity: 1 }, { opacity: 0, duration: 0.3 });
@@ -200,16 +200,29 @@ document.addEventListener("DOMContentLoaded", function () {
   const stickyHeader = document.querySelector(".sticky-header");
   const headerClasses = ["sticky", "animate__slideInDown", "animate__animated"];
   const mobileMenu = document.querySelector("#mobile-bottom-menu");
+
   const mobileMenuClasses = ["translate-y-0", "opacity-100"];
   toggleElOnscroll(
     stickyHeader.offsetTop + stickyHeader.offsetHeight * 1.75,
     toggleClasses(headerClasses, stickyHeader, true),
-    toggleClasses(headerClasses, stickyHeader, false),
+    toggleClasses(headerClasses, stickyHeader, false)
   );
   toggleElOnscroll(
     stickyHeader.offsetTop + stickyHeader.offsetHeight * 1.75,
-    toggleClasses(mobileMenuClasses, mobileMenu, true),
-    toggleClasses(mobileMenuClasses, mobileMenu, false),
+    () => {
+      mobileMenu.classList.add(
+        "opacity-100",
+        "animate__slideInUp",
+        "animate__animated"
+      );
+    },
+    () => {
+      mobileMenu.classList.remove(
+        "opacity-100",
+        "animate__slideInUp",
+        "animate__animated"
+      );
+    }
   );
 
   // for scroll up button

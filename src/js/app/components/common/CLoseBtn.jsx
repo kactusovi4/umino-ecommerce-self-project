@@ -8,13 +8,12 @@ function closePopup(el) {
   shadow.classList.add("pointer-events-none");
 }
 
-const CLoseBtn = ({ popup }) => {
+const CLoseBtn = ({ popup, pos = "right-6 top-9" }) => {
   // console.log(shadow.classList, popup);
+  const btnCls = "popup-close absolute p-1 bg-white rounded-full z-10 " + pos;
+
   return (
-    <button
-      className="popup-close absolute right-6 top-9 p-1 bg-white rounded-full z-10"
-      onClick={() => closePopup(popup)}
-    >
+    <button className={btnCls} onClick={() => closePopup(popup)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="22"

@@ -10,8 +10,8 @@ function fixImageLink(imgs) {
   return newImgs;
 }
 
-const Card = ({ imgs, price, title }) => {
-  const arr = fixImageLink(imgs);
+const Card = ({ product: p, addToCart }) => {
+  const arr = fixImageLink(p.images);
 
   if (!arr.length) {
     return <></>;
@@ -25,17 +25,17 @@ const Card = ({ imgs, price, title }) => {
         <div
           className="img-container relative overflow-hidden rounded-t-xl"
           onClick={() => {
-            console.log(imgs);
+            console.log(p.images);
           }}
         >
           <img
             className="large-tablet:group-hover/img-container:opacity-0 transition-all duration-500 min-h-[183px]"
-            src={imgs[0]}
+            src={p.images[0]}
             alt="fashion-product"
           />
           <img
             className="opacity-0 large-tablet:group-hover/img-container:opacity-100 large-tablet:group-hover/img-container:scale-110 transition-all duration-500 absolute top-0 left-0 -z-[1 min-h-[183px]"
-            src={imgs[1]}
+            src={p.images[1]}
             alt="fashion-product"
           />
         </div>
@@ -44,6 +44,7 @@ const Card = ({ imgs, price, title }) => {
             className="
           w-full px-4 py-3 uppercase bg-black rounded-b-xl text-white font-semibold 
           large-tablet:rounded-full large-tablet:bg-white large-tablet:text-black large-tablet:hover:bg-black large-tablet:hover:text-white transition-all duration-300"
+            onClick={() => addToCart(p.id)}
           >
             Add to catrt
           </button>
@@ -55,7 +56,7 @@ const Card = ({ imgs, price, title }) => {
           className="hover:opacity-60 transition-all line-clamp-2 text-xl h-max"
           href="#"
         >
-          {title}
+          {p.title}
         </a>
         <div>
           <span className="icon-star"></span>
@@ -64,10 +65,8 @@ const Card = ({ imgs, price, title }) => {
           <span className="icon-star"></span>
           <span className="icon-star"></span>
         </div>
-        <span className="text-page-red text-lg font-medium">${price}</span>
+        <span className="text-page-red text-lg font-medium">${p.price}</span>
       </div>
-      {/* add to cart btn */}
-      <button></button>
     </div>
   );
 };

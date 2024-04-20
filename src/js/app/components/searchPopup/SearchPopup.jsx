@@ -1,14 +1,9 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import PropTypes from "prop-types";
 import Products from "./Products";
 import SearchForm from "./SearchForm";
 import CloseBtn from "../common/CLoseBtn";
-
-async function fetchProducts(URL) {
-  const res = await fetch(URL);
-
-  return await res.json();
-}
+import { ShopContext } from "../../context/shop-context";
 
 function filterProducts(products, val) {
   let filteredProducts = products;
@@ -19,30 +14,10 @@ function filterProducts(products, val) {
   return filteredProducts;
 }
 
-const SearchPopup = () => {
+const SearchPopup = ({ setUrl, addToCart, products, loading }) => {
   const popup = useRef();
+  const { products } = useContext(ShopContext);
 
-  // fetching data
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [url, setUrl] = useState("");
-
-  useEffect(() => {
-    async function getProducts() {
-      setLoading(true);
-      try {
-        const products = await fetchProducts(url);
-        setProducts(products);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    getProducts();
-  }, [url]);
-
-  // search part
   const [search, setSearch] = useState("");
   function handleSearch(val) {
     setSearch(val);
@@ -63,12 +38,17 @@ const SearchPopup = () => {
           filteredProducts={filteredProducts}
           loading={loading}
           setUrl={setUrl}
+          addToCart={addToCart}
         />
       </div>
     </div>
   );
 };
 
-SearchPopup.propTypes = {};
+// SearchPopup.propTypes = {
+//   products: PropTypes.array.isRequired,
+//   loading: PropTypes.bool.isRequired,
+//   setUrl: PropTypes.func.isRequired,
+// };
 
 export default SearchPopup;
