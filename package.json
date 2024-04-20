@@ -17,7 +17,7 @@
     "Academy",
     "Front-end"
   ],
-  "author": "Roman Nikiforov",
+  "author": "Andrey Ievlev",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.24.4",

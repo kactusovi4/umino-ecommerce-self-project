@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import { ShopContext } from "../../context/shop-context";
 
 const errImgUrl = "";
 
@@ -10,13 +11,14 @@ function fixImageLink(imgs) {
   return newImgs;
 }
 
-const Card = ({ product: p, addToCart }) => {
+const Card = ({ product: p }) => {
   const arr = fixImageLink(p.images);
+
+  const { addToCart, cartItems } = useContext(ShopContext);
 
   if (!arr.length) {
     return <></>;
   }
-
   return (
     <div>
       {/* <!-- card img and its buttons --> */}
@@ -43,10 +45,12 @@ const Card = ({ product: p, addToCart }) => {
           <button
             className="
           w-full px-4 py-3 uppercase bg-black rounded-b-xl text-white font-semibold 
-          large-tablet:rounded-full large-tablet:bg-white large-tablet:text-black large-tablet:hover:bg-black large-tablet:hover:text-white transition-all duration-300"
+          large-tablet:rounded-full large-tablet:bg-white large-tablet:text-black large-tablet:hover:bg-black large-tablet:hover:text-white transition-all duration-300
+          disabled:opacity-65"
             onClick={() => addToCart(p.id)}
+            disabled={cartItems[p.id]}
           >
-            Add to catrt
+            {cartItems[p.id] ? "In cart" : "Add to cart"}
           </button>
         </div>
       </div>

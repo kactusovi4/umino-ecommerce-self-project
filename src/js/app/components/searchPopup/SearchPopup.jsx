@@ -14,9 +14,10 @@ function filterProducts(products, val) {
   return filteredProducts;
 }
 
-const SearchPopup = ({ setUrl, addToCart, products, loading }) => {
+const SearchPopup = () => {
   const popup = useRef();
   const { products } = useContext(ShopContext);
+  // console.log(products);
 
   const [search, setSearch] = useState("");
   function handleSearch(val) {
@@ -34,21 +35,10 @@ const SearchPopup = ({ setUrl, addToCart, products, loading }) => {
       {/* <!-- actual content --> */}
       <div className="w-full h-[100%] flex flex-col bg-white pt-9 pb-16 px-4 overflow-y-scroll">
         <SearchForm handleSearch={handleSearch} />
-        <Products
-          filteredProducts={filteredProducts}
-          loading={loading}
-          setUrl={setUrl}
-          addToCart={addToCart}
-        />
+        <Products filteredProducts={filteredProducts} />
       </div>
     </div>
   );
 };
-
-// SearchPopup.propTypes = {
-//   products: PropTypes.array.isRequired,
-//   loading: PropTypes.bool.isRequired,
-//   setUrl: PropTypes.func.isRequired,
-// };
 
 export default SearchPopup;

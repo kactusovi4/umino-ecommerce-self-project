@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 export const ShopContext = createContext(null);
 
@@ -9,14 +10,23 @@ async function fetchProducts(URL) {
 
 function getDefaultInCart(products) {
   const inCart = {};
-  inCart[-1] = 0;
+  // inCart[-1] = 0;
   products.forEach((p) => {
-    inCart[p.id] = 0;
+    inCart[p.id] = inCart[p.id] || 0;
   });
   return inCart;
 }
 
-export const shopContextProvider = (props) => {
+function updateCartCounter(cartItems) {
+  const count = Object.values(cartItems).reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
+  document.querySelectorAll(".cart-counter").forEach((el) => {
+    el.innerHTML = count;
+  });
+}
+
+export const ShopContextProvider = (props) => {
   async function getProducts() {
     setLoading(true);
     try {
@@ -31,9 +41,7 @@ export const shopContextProvider = (props) => {
   // fetching data
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [url, setUrl] = useState(
-    "https://api.escuelajs.co/api/v1/products?offset=0&limit=30"
-  );
+  const [url, setUrl] = useState("https://api.escuelajs.co/api/v1/products");
   const setNewUrl = (url) => setUrl(url);
 
   useEffect(() => {
@@ -41,10 +49,18 @@ export const shopContextProvider = (props) => {
   }, [url]);
   // cart
 
-  const [cartItems, setCartItems] = useState({});
+  const localCart = JSON.parse(localStorage.getItem("cartItems")) || {};
+  const [cartItems, setCartItems] = useState(localCart);
+
   useEffect(() => {
-    setCartItems(getDefaultInCart(products));
+    if (Object.keys(cartItems).length === 0) {
+      setCartItems(getDefaultInCart(products));
+    }
   }, [products]);
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    updateCartCounter(cartItems);
+  }, [cartItems]);
 
   function addToCart(id) {
     setCartItems((prev) => {
@@ -53,9 +69,11 @@ export const shopContextProvider = (props) => {
   }
   function removeFromCart(id) {
     setCartItems((prev) => {
-      return { ...prev, [id]: prev[id] === 0 ? 0 : prev[id] - 1 };
+      // return { ...prev, [id]: prev[id] === 1 ? 1 : prev[id] - 1 };
+      return { ...prev, [id]: prev[id] - 1 };
     });
   }
+  // console.log(cartItems);
 
   const contextValue = {
     cartItems,
@@ -71,5 +89,3 @@ export const shopContextProvider = (props) => {
     </ShopContext.Provider>
   );
 };
-
-export default shopContextProvider;

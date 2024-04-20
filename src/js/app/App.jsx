@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react";
 import SearchPopup from "./components/searchPopup/SearchPopup";
 import CartPopup from "./components/cartPopup/CartPopup";
-import shopContextProvider from "./context/shop-context";
+import { ShopContextProvider } from "./context/shop-context";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   // console.log(inCart);
 
   return (
-    <shopContextProvider>
-      <SearchPopup
-        setUrl={setUrl}
-        products={products}
-        loading={loading}
-        addToCart={addToCart}
-      />
-      <CartPopup inCart={inCart} products={products} />
-    </shopContextProvider>
+    <>
+      <ToastContainer />
+      <ShopContextProvider>
+        <SearchPopup />
+        <CartPopup />
+      </ShopContextProvider>
+    </>
   );
 };
 

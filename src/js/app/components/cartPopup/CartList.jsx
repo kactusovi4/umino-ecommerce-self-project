@@ -1,28 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import CartItem from "./CartItem";
+import { ShopContext } from "../../context/shop-context";
 
 const CartList = () => {
-  const product = {
-    id: 4,
-    title: "Handmade Fresh Table",
-    price: 687,
-    description: "Andy shoes are designed to keeping in...",
-    category: {
-      id: 5,
-      name: "Others",
-      image: "https://placeimg.com/640/480/any?r=0.591926261873231",
-    },
-    images: [
-      "i/fashion_products_22_1_35bfb1ff-ba53-4183-8165-40ad7779a8a7.webp",
-      "https://placeimg.com/640/480/any?r=0.9300320592588625",
-      "https://placeimg.com/640/480/any?r=0.8807778235430017",
-    ],
-  };
+  const { products, cartItems } = useContext(ShopContext);
 
   return (
-    <div id="cart-container" className="flex flex-col gap-4 w-full px-6 py-4">
-      <CartItem p={product} />
+    <div
+      id="cart-container"
+      className="flex flex-col w-full px-6 py-4 divide-y-2 divide-dotted overflow-y-scroll"
+    >
+      {products.map((product) => {
+        if (cartItems[product.id] > 0) {
+          return <CartItem key={product.id} p={product} />;
+        }
+      })}
     </div>
   );
 };

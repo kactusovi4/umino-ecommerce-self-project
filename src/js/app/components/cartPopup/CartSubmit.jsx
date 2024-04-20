@@ -64,9 +64,9 @@ const CartSubmit = ({ total }) => {
         </button>
       </div>
       <div className="flex flex-col bg-black bg-opacity-5">
-        <div className="w-full flex justify-between px-6 py-5 font-normal text-lg">
+        <div className="w-full flex justify-between px-6 py-5 [font-weight:450] text-lg">
           <h4>Subtotal</h4>
-          <span>${total}</span>
+          <span>${total}.00</span>
         </div>
       </div>
     </div>
