@@ -69,11 +69,19 @@ export const ShopContextProvider = (props) => {
   }
   function removeFromCart(id) {
     setCartItems((prev) => {
-      // return { ...prev, [id]: prev[id] === 1 ? 1 : prev[id] - 1 };
       return { ...prev, [id]: prev[id] - 1 };
     });
   }
-  // console.log(cartItems);
+  function deleteFromCart(id) {
+    setCartItems((prev) => {
+      return { ...prev, [id]: 0 };
+    });
+  }
+  function updateInCart(id, value) {
+    setCartItems((prev) => {
+      return { ...prev, [id]: value };
+    });
+  }
 
   const contextValue = {
     cartItems,
@@ -82,6 +90,8 @@ export const ShopContextProvider = (props) => {
     products,
     loading,
     setNewUrl,
+    updateInCart,
+    deleteFromCart,
   };
   return (
     <ShopContext.Provider value={contextValue}>

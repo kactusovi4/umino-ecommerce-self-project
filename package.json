@@ -52,6 +52,7 @@
     "@emotion/styled": "^11.11.5",
     "copy-webpack-plugin": "^12.0.2",
     "dotenv": "^16.4.5",
+    "import-glob-loader": "^1.1.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

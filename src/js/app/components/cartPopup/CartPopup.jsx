@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import CloseBtn from "../common/CLoseBtn";
 import CartList from "./CartList";
 import CartSubmit from "./CartSubmit";
+import CartTitle from "./CartTitle";
 import { ShopContext } from "../../context/shop-context";
 
 const CartPopup = () => {
@@ -26,20 +27,7 @@ const CartPopup = () => {
         {/* <!-- actual content --> */}
         <div className="size-full grid grid-rows-[auto_1fr_auto] bg-white ">
           {/* <!-- title --> */}
-          <div>
-            <div className="relative w-full px-6 py-4 text-[18px] font-normal">
-              <h4>
-                Shopping Cart (<span className="cart-counter">0</span>)
-              </h4>
-            </div>
-            {/* discount part  */}
-            {/* TODO: add discount progressbar */}
-            <div className="bg-black bg-opacity-5 px-6 py-4 border-t-2 border-b-2">
-              <span>
-                Discount: <span className="text-page-red">$10.00</span>
-              </span>
-            </div>
-          </div>
+          <CartTitle subtotal={subtotal} />
           <CartList />
           <CartSubmit total={subtotal} />
         </div>

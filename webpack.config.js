@@ -104,7 +104,7 @@ module.exports = (env, argv) => {
           },
         },
         {
-          test: /\.scss$/,
+          test: /\.s?css$/,
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
@@ -123,6 +123,8 @@ module.exports = (env, argv) => {
                 },
               },
             },
+
+            "import-glob-loader",
           ],
         },
       ],

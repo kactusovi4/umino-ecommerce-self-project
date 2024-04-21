@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { ShopContext } from "../../context/shop-context";
+import { toast } from "react-toastify";
 
 const errImgUrl = "";
 
@@ -47,7 +48,10 @@ const Card = ({ product: p }) => {
           w-full px-4 py-3 uppercase bg-black rounded-b-xl text-white font-semibold 
           large-tablet:rounded-full large-tablet:bg-white large-tablet:text-black large-tablet:hover:bg-black large-tablet:hover:text-white transition-all duration-300
           disabled:opacity-65"
-            onClick={() => addToCart(p.id)}
+            onClick={() => {
+              toast.success("Added to cart");
+              addToCart(p.id);
+            }}
             disabled={cartItems[p.id]}
           >
             {cartItems[p.id] ? "In cart" : "Add to cart"}
