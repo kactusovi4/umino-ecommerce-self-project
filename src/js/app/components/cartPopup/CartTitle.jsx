@@ -4,12 +4,15 @@ import { LiaShippingFastSolid } from "react-icons/lia";
 
 const CartTitle = ({ subtotal }) => {
   const progressBar = useRef();
+  const parent = useRef();
 
   useEffect(() => {
     if (subtotal < 100) {
       progressBar.current.style.width = `${subtotal}%`;
+      parent.current.classList.remove("animate__flash", "animate__animated");
     } else {
       progressBar.current.style.width = "100%";
+      parent.current.classList.add("animate__flash", "animate__animated");
     }
   }, [subtotal]);
 
@@ -22,7 +25,10 @@ const CartTitle = ({ subtotal }) => {
       </div>
       {/* discount part  */}
       {/* TODO: add discount progressbar */}
-      <div className="relative bg-black bg-opacity-5 px-6 py-4 border-t-2 border-b-2 flex flex-col gap-4">
+      <div
+        className="relative bg-black bg-opacity-5 px-6 py-4 border-t-2 border-b-2 flex flex-col gap-4"
+        ref={parent}
+      >
         <div className="w-[calc(100%-48px)] absolute left-6 h-[5px] bg-gray-400 bg-opacity-55"></div>
         <div
           className="relative h-[5px] bg-page-red rounded-[4px] transition-all overflow-visible"

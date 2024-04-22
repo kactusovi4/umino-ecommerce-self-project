@@ -261,3 +261,74 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// form validation
+function showHideRedInput(el) {
+  const wrongInputText = document.createElement("span");
+  wrongInputText.classList.add("text-red-700", "mt-[-12px]", "text-[14px]");
+  wrongInputText.textContent = "This field is required, 5 chars min";
+
+  const form = el.closest("form");
+  const submitBtn = form.querySelector("button[type='submit']");
+  submitBtn.classList.add("disabled:opacity-50");
+  const formEls = form.querySelectorAll("*");
+
+  if (el.value === "") {
+    el.classList.add("ring-red-700");
+    el.classList.remove("ring-green-700");
+    el.insertAdjacentElement("afterend", wrongInputText);
+    submitBtn.disabled = true;
+    el.addEventListener("input", function () {
+      if (el.value.length < 5) {
+        return;
+      }
+      if (el.nextElementSibling === wrongInputText) {
+        el.classList.remove("ring-red-700");
+        el.classList.add("ring-green-700");
+        el.nextElementSibling.remove();
+      }
+      let isWrong = false;
+      formEls.forEach((formEl) => {
+        if (!isWrong) {
+          if (!formEl.classList.contains("ring-red-700")) {
+            submitBtn.disabled = false;
+            isWrong = false;
+          } else {
+            submitBtn.disabled = true;
+            isWrong = true;
+          }
+        }
+      });
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const forms = document.querySelectorAll("form");
+
+  forms.forEach((form) => {
+    const inputs = form.querySelectorAll("input");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      inputs.forEach((input) => {
+        showHideRedInput(input);
+      });
+    });
+  });
+});
+
+// form local save
+document.addEventListener("DOMContentLoaded", function () {
+  const forms = document.querySelectorAll("form");
+  forms.forEach((form) => {
+    const inputs = form.querySelectorAll("input");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const data = {};
+      inputs.forEach((input) => {
+        data[input.type] = input.value;
+      });
+      localStorage.setItem("form-data", JSON.stringify(data));
+    });
+  });
+});

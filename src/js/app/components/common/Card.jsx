@@ -32,12 +32,12 @@ const Card = ({ product: p }) => {
           }}
         >
           <img
-            className="large-tablet:group-hover/img-container:opacity-0 transition-all duration-500 min-h-[183px]"
+            className="object-cover large-tablet:group-hover/img-container:opacity-0 transition-all duration-500 min-h-[183px]"
             src={p.images[0]}
             alt="fashion-product"
           />
           <img
-            className="opacity-0 large-tablet:group-hover/img-container:opacity-100 large-tablet:group-hover/img-container:scale-110 transition-all duration-500 absolute top-0 left-0 -z-[1 min-h-[183px]"
+            className="object-cover opacity-0 large-tablet:group-hover/img-container:opacity-100 large-tablet:group-hover/img-container:scale-110 transition-all duration-500 absolute top-0 left-0 -z-[1 min-h-[183px]"
             src={p.images[1]}
             alt="fashion-product"
           />

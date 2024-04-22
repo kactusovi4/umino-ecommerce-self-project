@@ -35,16 +35,16 @@
         </svg>
       </button>
       <!-- actual content -->
-      <div class="w-[500px] h-fit flex flex-col bg-white rounded-md pt-[35px]">
+      <div class="w-[clamp(300px,90vw,500px)] h-fit flex flex-col bg-white rounded-md pt-[35px]">
         <!-- login part container -->
         <div id="login-main" class="login-part w-full">
           <h3 class="text-center font-medium">Login</h3>
-          <form action="" class="relative self-center w-full flex flex-col gap-6 p-[30px]">
-            <input type="email" required placeholder="Your email*"
+          <form class="js-form-validated relative self-center w-full flex flex-col gap-6 p-[30px]">
+            <input type="email" placeholder="Your email*"
               class="rounded-full font-medium px-5 py-4 text-black transition-all w-full bg-white ring-1 ring-gray-300 focus:ring-black duration-200 flex-1" />
-            <input type="password" required placeholder="Password*"
+            <input type="password" placeholder="Password*"
               class="rounded-full font-medium px-5 py-4 text-black transition-all w-full bg-white ring-1 ring-gray-300 focus:ring-black duration-200 flex-1" />
-            <div class="flex justify-between items-center">
+            <div class="form-switchers flex justify-between items-center">
               <span data-target="login-forgot-pw"
                 class="text-gray-700 font-normal cursor-pointer hover:underline login-switcher">Forgot your
                 password?</span>
@@ -59,19 +59,19 @@
         </div>
         <div id="login-create-account" class="login-part w-full hidden">
           <h3 class="text-center font-medium">Create Account</h3>
-          <form action="" class="relative self-center w-full flex flex-col gap-6 p-[30px]">
-            <input type="text" required placeholder="First name"
+          <form class="js-form-validated relative self-center w-full flex flex-col gap-6 p-[30px]">
+            <input type="text" placeholder="First name"
               class="rounded-full font-medium px-5 py-4 text-black transition-all w-full bg-white ring-1 ring-gray-300 focus:ring-black duration-200 flex-1" />
-            <input type="text" required placeholder="Last name"
+            <input type="text" placeholder="Last name"
               class="rounded-full font-medium px-5 py-4 text-black transition-all w-full bg-white ring-1 ring-gray-300 focus:ring-black duration-200 flex-1" />
-            <input type="email" required placeholder="Your email*"
+            <input type="email" placeholder="Your email*"
               class="rounded-full font-medium px-5 py-4 text-black transition-all w-full bg-white ring-1 ring-gray-300 focus:ring-black duration-200 flex-1" />
-            <input type="password" required placeholder="Password*"
+            <input type="password" placeholder="Password*"
               class="rounded-full font-medium px-5 py-4 text-black transition-all w-full bg-white ring-1 ring-gray-300 focus:ring-black duration-200 flex-1" />
             <span class="text-sm font-normal">Your personal data will be used to support your experience
               throughout this website, to manage access to your account and
               for other purposes described in our privacy policy.</span>
-            <div class="flex justify-between items-center">
+            <div class="form-switchers flex justify-between items-center">
               <span data-target="login-main"
                 class="text-gray-700 font-normal cursor-pointer hover:underline login-switcher">Already have an
                 account?</span>
@@ -83,12 +83,12 @@
         </div>
         <div id="login-forgot-pw" class="login-part w-full hidden">
           <h3 class="text-center font-medium">Forgot Password</h3>
-          <form action="" class="relative self-center w-full flex flex-col gap-6 p-[30px]">
+          <form class="js-form-validated relative self-center w-full flex flex-col gap-6 p-[30px]">
             <span class="text-center">Lost your password? Please enter your email address. You will
               receive a link to create a new password via email.</span>
-            <input type="email" required placeholder="Your email*"
+            <input type="email" placeholder="Your email*"
               class="rounded-full font-medium px-5 py-4 text-black transition-all w-full bg-white ring-1 ring-gray-300 focus:ring-black duration-200 flex-1" />
-            <div class="flex justify-between items-center">
+            <div class="form-switchers flex justify-between items-center">
               <span data-target="login-create-account"
                 class="text-gray-700 font-normal cursor-pointer hover:underline login-switcher">Dont have an
                 account?</span>
@@ -743,7 +743,7 @@
             Home</a>
         </li>
         <li>
-          <a href="#" class="flex flex-col gap-1 justify-center items-center">
+          <a data-target="login-popup" class=" popup-open flex flex-col gap-1 justify-center items-center">
             <svg width="17" height="17" viewBox="0 0 17 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M16.8927 15.7682C16.0329 14.3137 14.8061 13.1078 13.3338 12.27C11.8614 11.4322 10.1946 10.9914 8.49845 10.9914C6.80225 10.9914 5.13546 11.4322 3.66314 12.27C2.19082 13.1078 0.964024 14.3137 0.104236 15.7682C-0.00102398 15.9568 -0.027822 16.179 0.0295835 16.387C0.0566587 16.493 0.106188 16.592 0.174854 16.6774C0.243521 16.7627 0.329737 16.8325 0.427728 16.8821C0.554141 16.9534 0.697158 16.9903 0.842462 16.9894C0.986554 16.9954 1.12952 16.9616 1.25545 16.8917C1.38138 16.8218 1.48536 16.7185 1.5558 16.5933C2.26752 15.3886 3.2833 14.3898 4.50251 13.6958C5.72172 13.0018 7.10204 12.6367 8.50674 12.6367C9.91144 12.6367 11.2918 13.0018 12.511 13.6958C13.7302 14.3898 14.746 15.3886 15.4577 16.5933C15.5685 16.7806 15.7491 16.9169 15.9603 16.9725C16.1715 17.0281 16.3963 16.9986 16.5858 16.8903C16.6801 16.8403 16.7628 16.7711 16.8285 16.6872C16.8943 16.6034 16.9415 16.5067 16.9673 16.4035C16.998 16.298 17.0072 16.1874 16.9944 16.0783C16.9816 15.9692 16.947 15.8638 16.8927 15.7682Z">

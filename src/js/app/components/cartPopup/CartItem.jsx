@@ -94,7 +94,7 @@ const CartItem = ({ p }) => {
                 className="uppercase w-[81px] py-3 rounded-full bg-black text-white"
                 onClick={() => {
                   setIsConfirmation(false);
-                  removeFromCart(p.id);
+                  deleteFromCart(p.id);
                 }}
               >
                 <span className="font-semibold text-[12px]">Yes</span>

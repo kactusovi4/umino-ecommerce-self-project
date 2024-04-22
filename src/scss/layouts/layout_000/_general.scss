@@ -82,3 +82,8 @@ svg {
   filter: invert(1);
   z-index: 11;
 }
+
+// form validation
+.invalid {
+  border-color: red;
+}
