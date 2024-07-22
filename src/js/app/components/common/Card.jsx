@@ -18,7 +18,8 @@ const Card = ({ product: p }) => {
   const { addToCart, cartItems } = useContext(ShopContext);
 
   if (!arr.length) {
-    return <></>;
+    // return <></>;
+    p.images.map((i) => console.log(i));
   }
   return (
     <div>

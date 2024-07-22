@@ -30,7 +30,7 @@ function Products({ filteredProducts }) {
           return <Card product={p} key={p.id} />;
         })}
       </div>
-      <div className="size-full grid place-content-center pt-8">
+      {/* <div className="size-full grid place-content-center pt-8">
         <button
           className="px-6 py-3 bg-purple-700 text-white rounded-xl"
           onClick={() => {
@@ -39,7 +39,7 @@ function Products({ filteredProducts }) {
         >
           Load More
         </button>
-      </div>
+      </div> */}
     </>
   );
 }

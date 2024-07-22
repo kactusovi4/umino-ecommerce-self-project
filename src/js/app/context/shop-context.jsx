@@ -3,6 +3,8 @@ import { toast, ToastContainer } from "react-toastify";
 
 export const ShopContext = createContext(null);
 
+const URL = "https://api.escuelajs.co/api/v1/products";
+
 async function fetchProducts(URL) {
   const res = await fetch(URL);
   return await res.json();
@@ -41,7 +43,7 @@ export const ShopContextProvider = (props) => {
   // fetching data
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [url, setUrl] = useState("https://api.escuelajs.co/api/v1/products");
+  const [url, setUrl] = useState(URL);
   const setNewUrl = (url) => setUrl(url);
 
   useEffect(() => {
